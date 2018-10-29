@@ -7,9 +7,6 @@ using namespace std;
 
 // Default constructor
 WordCount::WordCount() {
-
-  
-
 }
 
 // Simple hash function. Do not modify.
@@ -22,13 +19,27 @@ size_t WordCount::hash(std::string word) const {
 }
 
 int WordCount::getTotalWords() const {
-	// STUB.
-	return -1;
+  size_t counter = 0;
+  for (int i = 0; i < CAPACITY; i++)
+    {
+      for (std::vector<std::pair<std::string,size_t>>::iterator it = table[i].begin(); it != tabel[i].end(); it++)
+	{
+	  counter += (*it).second;
+	}
+    }
+  return counter;
 }
 
 int WordCount::getNumUniqueWords() const {
-	// STUB
-	return -1;
+  size_t counter = 0;
+  for (int i = 0; i < CAPACITY; i++)
+    {
+      for (std::vector<std::pair<std::string,size_t>>::iterator it = table[i].begin(); it != tabel[i].end(); it++)
+	{
+	  counter += 1;
+	}
+    }
+  return counter;
 }
 
 int WordCount::getWordCount(std::string word) const {
