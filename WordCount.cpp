@@ -2,6 +2,8 @@
 // Written by Richert Wang for CS 32, F18.
 
 #include "WordCount.h"
+#include <stdio.h>
+#include <ctype.h>
 
 using namespace std;
 
@@ -22,9 +24,9 @@ int WordCount::getTotalWords() const {
   size_t counter = 0;
   for (int i = 0; i < CAPACITY; i++)
     {
-      for (std::vector<std::pair<std::string,size_t>>::iterator it = table[i].begin(); it != tabel[i].end(); it++)
+      for (int j = 0; j < table[i].size(); j++)
 	{
-	  counter += (*it).second;
+	  counter += (table[i].at(j)).second;
 	}
     }
   return counter;
@@ -34,7 +36,7 @@ int WordCount::getNumUniqueWords() const {
   size_t counter = 0;
   for (int i = 0; i < CAPACITY; i++)
     {
-      for (std::vector<std::pair<std::string,size_t>>::iterator it = table[i].begin(); it != tabel[i].end(); it++)
+      for (int j = 0; j < table[i].size(); j++)
 	{
 	  counter += 1;
 	}
@@ -43,14 +45,19 @@ int WordCount::getNumUniqueWords() const {
 }
 
 int WordCount::getWordCount(std::string word) const {
-	// STUB
-	return -1;
+  size_t i = hash(word);
+  for ( int j = 0; j < table[i].size();j++)
+    {
+      if ( ((table[i].at(j)).first).compare(word) == 0)
+         {
+	   return (table[i].at(j)).second;
+	 }
+    }
 }
 	
 
 int WordCount::incrWordCount(std::string word) {
-	// STUB
-	return -1;
+  return -1;
 }
 
 
@@ -61,6 +68,14 @@ bool WordCount::isWordChar(char c) {
 
 
 std::string WordCount::stripWord(std::string word) {
-	// STUB
-	return "";
+  string ans = "";
+  
+  for ( int i = 0; i < word.length(); i++)
+    {
+      if ( isalpha(word[i]) || word[i] == '-' || word[i] == '\'')
+	{
+	  ans += word[i];
+	}
+    }
+  return ans;
 }

@@ -1,0 +1,6 @@
+main: WordCount
+
+WordCount: WordCount.o
+	g++ $^ -o  $@
+clean:
+	/bin/rm -f WordCount *.o
