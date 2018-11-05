@@ -27,12 +27,17 @@ int main()
     }
   */
 
-  WordCount table();
+  WordCount w;
+
+  int i = 0;
   
   for (unsigned n = 0; n < v.size(); n++)
     {
-      
+      cout << v.at(n) << "-" ;
+      i = w.incrWordCount( v.at(n) );
+      cout << i << endl;
     }
+
        
   return 0;
 }
