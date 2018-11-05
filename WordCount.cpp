@@ -26,9 +26,9 @@ size_t WordCount::hash(std::string word) const {
 
 int WordCount::getTotalWords() const {
   int counter = 0;
-  for (int i = 0; i < CAPACITY; i++)
+  for (unsigned i = 0; i < CAPACITY; i++)
     {
-      for (int j = 0; j < table[i].size(); j++)
+      for (unsigned j = 0; j < table[i].size(); j++)
 	{
 	  counter += static_cast<int>( (table[i].at(j)).second );
 	}
@@ -38,9 +38,9 @@ int WordCount::getTotalWords() const {
 
 int WordCount::getNumUniqueWords() const {
   int counter = 0;
-  for (int i = 0; i < CAPACITY; i++)
+  for (unsigned i = 0; i < CAPACITY; i++)
     {
-      for (int j = 0; j < table[i].size(); j++)
+      for (unsigned j = 0; j < table[i].size(); j++)
 	{
 	  counter++;
 	}
@@ -51,7 +51,7 @@ int WordCount::getNumUniqueWords() const {
 int WordCount::getWordCount(std::string word) const {
   std::string fword = stripWord(word);
   size_t i = hash(fword);
-  for ( int j = 0; j < table[i].size();j++)
+  for ( unsigned j = 0; j < table[i].size();j++)
     {
       if ( ((table[i].at(j)).first).compare(fword) == 0)
          {
@@ -76,7 +76,7 @@ int WordCount::incrWordCount(std::string word) {
     }
   else
     {
-      for (int j = 0; j <table[i].size();j++)
+      for (unsigned j = 0; j <table[i].size();j++)
 	{
 	  if ( ((table[i].at(j)).first).compare(fword) == 0)
 	    {
@@ -98,7 +98,7 @@ bool WordCount::isWordChar(char c) {
 std::string WordCount::stripWord(std::string word) {
   std::string ans = "";
   
-  for ( int i = 0; i < word.length(); i++)
+  for ( unsigned i = 0; i < word.length(); i++)
     {
       if ( isalpha(word[i]) )
 	{
