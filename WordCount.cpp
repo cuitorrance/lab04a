@@ -6,6 +6,9 @@
 #include <ctype.h>
 #include <cctype>
 
+//testpurposes
+#include <iostream>
+#include <fstream>
 
 // Default constructor
 WordCount::WordCount() {
@@ -50,6 +53,7 @@ int WordCount::getNumUniqueWords() const {
 
 int WordCount::getWordCount(std::string word) const {
   std::string fword = stripWord(word);
+  if (fword.compare("") == 0) return 0;
   size_t i = hash(fword);
   for ( unsigned j = 0; j < table[i].size();j++)
     {
@@ -64,6 +68,7 @@ int WordCount::getWordCount(std::string word) const {
 
 int WordCount::incrWordCount(std::string word) {
   std::string fword = stripWord(word);
+  if (fword.compare("") == 0) return 0;
   size_t i = hash(fword);
   int index = 0;
   if ( getWordCount(fword) == 0)
@@ -72,6 +77,7 @@ int WordCount::incrWordCount(std::string word) {
       nword.first = fword;
       nword.second = 1;
       table[i].push_back(nword);
+      //std::cout << nword.first << std::endl;
       return 1;
     }
   else
@@ -84,6 +90,7 @@ int WordCount::incrWordCount(std::string word) {
 	    }
 	}
       (table[i].at(index)).second++;
+      //std::cout << (table[i].at(index)).first << std::endl;
       return (table[i].at(index)).second;
     }     
 }

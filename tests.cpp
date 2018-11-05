@@ -28,14 +28,16 @@ int main()
   */
 
   WordCount w;
-
   int i = 0;
   
   for (unsigned n = 0; n < v.size(); n++)
     {
-      cout << v.at(n) << "-" ;
+      cout << "-----------------" << endl;
+      cout << v.at(n) << endl ;
       i = w.incrWordCount( v.at(n) );
-      cout << i << endl;
+      i = w.incrWordCount( v.at(n) );
+      cout << "total unique words: " << w.getNumUniqueWords() << endl;
+      cout << "total words: " << w.getTotalWords() << endl;
     }
 
        
