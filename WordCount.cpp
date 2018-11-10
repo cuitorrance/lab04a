@@ -59,7 +59,12 @@ int WordCount::getNumUniqueWords() const {
   return ans;
   } */
 int WordCount::getWordCount(std::string word) const { 
-  std::string fword = stripWord(word);
+  std::string lword = stripWord(word);
+  std::string fword = "";
+  for (unsigned i = 0; i < lword.length();i++)
+    {
+      fword += toupper(lword[i]);
+    }
   if (fword.compare("") == 0) return 0;
   size_t i = hash(fword);
   for ( unsigned j = 0; j < table[i].size();j++)
