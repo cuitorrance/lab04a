@@ -50,14 +50,14 @@ int WordCount::getNumUniqueWords() const {
     }
   return counter;
 }
-std::string WordCount::toUp(std::string word){
+/* std::string WordCount::toUp(std::string word){
   std::string ans = "";
   for (unsigned i = 0; i < word.length();i++)
     {
       ans += toupper(word[i]);
     }
   return ans;
-}
+  } */
 int WordCount::getWordCount(std::string word) const {
   std::string fword = stripWord(word);
   if (fword.compare("") == 0) return 0;

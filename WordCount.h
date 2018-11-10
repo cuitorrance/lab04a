@@ -34,7 +34,7 @@ public:
   // Returns true if c is a valid word character defined as either
   // a lower-case or upper-case alpha char.
 
-  static std::string toUp(std::string word);
+  //  static std::string toUp(std::string word);
   //converts string to all uppercase
   
   static std::string stripWord(std::string word);
