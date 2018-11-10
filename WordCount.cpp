@@ -52,7 +52,7 @@ int WordCount::getNumUniqueWords() const {
 }
 
 int WordCount::getWordCount(std::string word) const {
-  std::string fword = stripWord(word);
+  std::string fword = toUp(stripWord(word));
   if (fword.compare("") == 0) return 0;
   size_t i = hash(fword);
   for ( unsigned j = 0; j < table[i].size();j++)
@@ -67,7 +67,7 @@ int WordCount::getWordCount(std::string word) const {
 	
 
 int WordCount::incrWordCount(std::string word) {
-  std::string fword = stripWord(word);
+  std::string fword = toUp(stripWord(word));
   if (fword.compare("") == 0) return 0;
   size_t i = hash(fword);
   int index = 0;
@@ -97,10 +97,24 @@ int WordCount::incrWordCount(std::string word) {
 
 
 bool WordCount::isWordChar(char c) {
-	// STUB
-	return false;
+  if (isalpha(c))
+    {
+      return true;
+    }
+  else
+    {
+      return false;
+    }
 }
 
+std::string WordCount::toUp(std::string word){
+  std::string ans = "";
+  for (unsigned i = 0; i < word.length();i++)
+    {
+      ans += toupper(word[i]);
+    }
+  return ans;
+}
 
 std::string WordCount::stripWord(std::string word) {
   std::string ans = "";
@@ -109,7 +123,7 @@ std::string WordCount::stripWord(std::string word) {
     {
       if ( isalpha(word[i]) )
 	{
-	  ans += toupper(word[i]);
+	  ans += word[i];
 	}
       else if ( word[i] == '-' || word[i] == '\'')
 	{
