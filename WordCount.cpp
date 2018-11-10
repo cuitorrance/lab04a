@@ -78,7 +78,7 @@ int WordCount::incrWordCount(std::string word) {
   std::string fword = "";
   for (unsigned i = 0; i < lword.length();i++)
     {
-      fowrd += toupper(lword[i]);
+      fword += toupper(lword[i]);
     }
   if (fword.compare("") == 0) return 0;
   size_t i = hash(fword);
