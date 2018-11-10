@@ -58,7 +58,7 @@ int WordCount::getNumUniqueWords() const {
     }
   return ans;
   } */
-int WordCount::getWordCount(std::string word) const {
+int WordCount::getWordCount(std::string word) const { 
   std::string fword = stripWord(word);
   if (fword.compare("") == 0) return 0;
   size_t i = hash(fword);
@@ -126,7 +126,7 @@ std::string WordCount::stripWord(std::string word) {
 	}
       else if ( word[i] == '-' || word[i] == '\'')
 	{
-	  if ( i -1 < 1)
+	  if ( i -1 < 1 || i == word.length()-1 )
 	    {
 	      //do nothing
 	    }
