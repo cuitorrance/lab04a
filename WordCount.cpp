@@ -74,7 +74,12 @@ int WordCount::getWordCount(std::string word) const {
 	
 
 int WordCount::incrWordCount(std::string word) {
-  std::string fword = stripWord(word);
+  std::string lword = stripWord(word);
+  std::string fword = "";
+  for (unsigned i = 0; i < lword.length();i++)
+    {
+      fowrd += toupper(lword[i]);
+    }
   if (fword.compare("") == 0) return 0;
   size_t i = hash(fword);
   int index = 0;
