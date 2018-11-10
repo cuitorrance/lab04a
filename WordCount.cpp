@@ -126,9 +126,13 @@ std::string WordCount::stripWord(std::string word) {
 	}
       else if ( word[i] == '-' || word[i] == '\'')
 	{
-	  if ( i -1 < 1 || i == word.length()-1 || ( !isalpha(word[i-1]) || !isalpha(word[i+1]) ) )
+	  if ( i == 0 || i == word.length()-1)
 	    {
 	      //do nothing
+	    }
+	  else if ( !isalpha(word[i-1]) || !isalpha(word[i+1]) ) 
+	    {
+	        //do nothing
 	    }
 	  else
 	    {
