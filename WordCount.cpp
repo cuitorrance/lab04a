@@ -59,7 +59,7 @@ std::string WordCount::toUp(std::string word){
   return ans;
 }
 int WordCount::getWordCount(std::string word) const {
-  std::string fword = toUp(stripWord(word));
+  std::string fword = stripWord(word);
   if (fword.compare("") == 0) return 0;
   size_t i = hash(fword);
   for ( unsigned j = 0; j < table[i].size();j++)
@@ -74,7 +74,7 @@ int WordCount::getWordCount(std::string word) const {
 	
 
 int WordCount::incrWordCount(std::string word) {
-  std::string fword = toUp(stripWord(word));
+  std::string fword = stripWord(word);
   if (fword.compare("") == 0) return 0;
   size_t i = hash(fword);
   int index = 0;
